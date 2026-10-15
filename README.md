@@ -1,68 +1,44 @@
-# Sparx Science Assistant
+[English](README.en.md)
 
-A local Chrome extension and Playwright bridge for reading Sparx Science questions, generating reviewable answers, and entering them into the current page.
+# Sparx Science Assistant（中文说明）
 
-![Sparx Study Assistant preview](docs/sparx-study-assistant-preview.png)
+本项目是一个本地 Chrome 扩展与 Playwright 自动化服务，用于读取 Sparx Science 题目、生成可复核答案，并填写到当前题目页面。
 
-## Features
+## 使用方法
 
-- Reads text and image-based questions.
-- Supports numeric fields, text fields, choices, and matching questions.
-- Uses the Sparx on-page keypad for numeric answers.
-- Uses clipboard paste for long text answers.
-- Shows separated answer previews in the popup.
-- Includes a functional light/dark theme switch.
-- Selects the next question through Sparx navigation buttons (`nav-*`).
+1. 解压 release ZIP。
+2. 打开 `chrome://extensions`，开启“开发者模式”。
+3. 点击“加载已解压的扩展程序”，选择解压后的目录。
+4. 在目录中运行 `npm install`。
+5. 将 `.env.example` 复制为 `.env` 并填写 API Key。
+6. 用 Chrome 远程调试模式启动浏览器，再运行 `start-all.ps1`。
+7. 打开 Sparx 题目，点击扩展图标。
+8. 依次点击“读取并解题”和“填入答案”。
 
-## Requirements
+## 配置
 
-- Windows 10/11
-- Google Chrome
-- Node.js 20 or newer
-- A configured upstream API key
-- Chrome started with remote debugging on port 9222
-
-## Installation
-
-1. Download the release ZIP and extract it.
-2. Open `chrome://extensions`.
-3. Enable Developer mode.
-4. Choose **Load unpacked** and select the extracted folder.
-5. Open PowerShell in the extracted folder and run `npm install`.
-6. Copy `.env.example` to `.env`, then set the API key.
-7. Run `start-all.ps1`, or use the included batch launcher.
-8. Open a Sparx Science question and click the extension icon.
-
-## Configuration
-
-Set these environment variables in `.env`:
+`.env` 示例：
 
 ```text
-OPENAI_API_KEY=your-key
+OPENAI_API_KEY=你的密钥
 OPENAI_BASE_URL=https://api.openai.com/v1
 OPENAI_MODEL=gpt-6.1-sol
 ```
 
-The local solve service listens on `http://localhost:8787`. The Playwright automation service uses port `8788` and connects to Chrome on `127.0.0.1:9222`.
+本地解题服务端口为 8787，Playwright 自动化服务端口为 8788，Chrome 调试端口为 9222。
 
-## Usage
+## 题型支持
 
-1. Click **读取并解题**.
-2. Review the separated answers in **答案预览**.
-3. Click **填入答案**.
-4. Use **下一题** to select the next Sparx question tab.
-5. Expand **技术详情** only when debugging is needed.
+支持图片题、数字题、文字题、选择题和连线题。数字题使用页面数字键盘，文字题使用剪贴板粘贴，答案预览按题目顺序分开显示。
 
-## Release
+## 发布安装
 
-The distributable extension is in `release/SparxScienceAssistant-2.0.0.zip`. Do not include `.env`, API keys, browser profiles, or debug logs in a public release.
-
-## License
-
-GNU GPLv3. See `LICENSE`.
-
-## Credits
+下载 `release/SparxScienceAssistant-2.0.0.zip`，解压后按照上面的扩展安装步骤加载。公开发布时不要包含 `.env`、API Key、浏览器用户目录和调试日志。
 
 Made by Samse.
+
+## 许可证
+
+本项目采用 GNU GPLv3，详见 LICENSE。
 
 
