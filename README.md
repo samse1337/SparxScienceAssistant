@@ -2,6 +2,8 @@
 
 A local Chrome extension and Playwright bridge for reading Sparx Science questions, generating reviewable answers, and entering them into the current page.
 
+![Sparx Study Assistant preview](docs/sparx-study-assistant-preview.png)
+
 ## Features
 
 - Reads text and image-based questions.
@@ -62,4 +64,5 @@ GNU GPLv3. See `LICENSE`.
 ## Credits
 
 Made by Samse.
+
 
