@@ -1,0 +1,1 @@
+import {chromium} from 'playwright';const b=await chromium.connectOverCDP('http://127.0.0.1:9222');const p=b.contexts()[0].pages().find(p=>p.url().includes('science.sparx-learning.com'));console.log(await p.locator('[data-entry-panel="keypad"]:visible [data-numeric-keypad]').evaluateAll(es=>es.map(e=>e.getAttribute('data-numeric-keypad'))));await b.close();
