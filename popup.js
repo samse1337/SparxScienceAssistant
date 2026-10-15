@@ -11,3 +11,5 @@ document.getElementById('next').onclick=async()=>{busy('正在切换下一题…
 
 const theme=document.getElementById('theme');chrome.storage.local.get('theme').then(x=>{if(x.theme==='dark')document.body.classList.add('dark')});theme.onclick=async()=>{document.body.classList.toggle('dark');await chrome.storage.local.set({theme:document.body.classList.contains('dark')?'dark':'light'})};
 
+
+
