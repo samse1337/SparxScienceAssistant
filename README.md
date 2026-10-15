@@ -27,6 +27,38 @@ OPENAI_MODEL=gpt-6.1-sol
 
 本地解题服务端口为 8787，Playwright 自动化服务端口为 8788，Chrome 调试端口为 9222。
 
+## Playwright 配置
+
+项目通过 Chrome DevTools Protocol 使用 Playwright 连接现有 Chrome，不需要额外下载 Playwright 浏览器包。
+
+首次安装依赖：
+
+```powershell
+npm install
+```
+
+手动启动 Chrome 调试实例：
+
+```powershell
+$chrome="$env:ProgramFiles\Google\Chrome\Application\chrome.exe"
+Start-Process $chrome -ArgumentList '--remote-debugging-port=9222','--user-data-dir=$env:USERPROFILE\SparxScienceAssistantProfile'
+```
+
+检查调试端口：
+
+```powershell
+Invoke-WebRequest http://127.0.0.1:9222/json/version
+```
+
+启动服务：
+
+```powershell
+node server.js
+node automation-server.mjs
+```
+
+也可以直接双击 `启动Sparx自动答题.bat`，它会启动 Chrome、解题 API 服务和 Playwright 自动化服务。
+
 ## 题型支持
 
 支持图片题、数字题、文字题、选择题和连线题。数字题使用页面数字键盘，文字题使用剪贴板粘贴，答案预览按题目顺序分开显示。

@@ -45,6 +45,38 @@ OPENAI_MODEL=gpt-6.1-sol
 
 The local solve service listens on `http://localhost:8787`. The Playwright automation service uses port `8788` and connects to Chrome on `127.0.0.1:9222`.
 
+## Playwright setup
+
+The project uses Playwright over the Chrome DevTools Protocol to connect to an existing Chrome instance. No separate Playwright browser download is required.
+
+Install dependencies once:
+
+```powershell
+npm install
+```
+
+Start Chrome with remote debugging:
+
+```powershell
+$chrome="$env:ProgramFiles\Google\Chrome\Application\chrome.exe"
+Start-Process $chrome -ArgumentList '--remote-debugging-port=9222','--user-data-dir=$env:USERPROFILE\SparxScienceAssistantProfile'
+```
+
+Check the debugging endpoint:
+
+```powershell
+Invoke-WebRequest http://127.0.0.1:9222/json/version
+```
+
+Start the services:
+
+```powershell
+node server.js
+node automation-server.mjs
+```
+
+Alternatively, double-click `启动Sparx自动答题.bat`. It starts Chrome, the solve API, and the Playwright automation service.
+
 ## Usage
 
 1. Click **读取并解题**.
