@@ -57,8 +57,9 @@ The distributable extension is in `release/SparxScienceAssistant-2.0.0.zip`. Do 
 
 ## License
 
-MIT. See `LICENSE`.
+GNU GPLv3. See `LICENSE`.
 
 ## Credits
 
 Made by Samse.
+

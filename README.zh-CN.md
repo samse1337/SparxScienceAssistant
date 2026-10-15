@@ -34,3 +34,8 @@ OPENAI_MODEL=gpt-6.1-sol
 下载 `release/SparxScienceAssistant-2.0.0.zip`，解压后按照上面的扩展安装步骤加载。公开发布时不要包含 `.env`、API Key、浏览器用户目录和调试日志。
 
 Made by Samse.
+
+## 许可证
+
+本项目采用 GNU GPLv3，详见 LICENSE。
+
